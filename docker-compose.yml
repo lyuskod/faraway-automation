@@ -1,0 +1,61 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: backend
+    image: ${FARAWAY_BACKEND_IMAGE_URL}
+    ports:
+      - '4000:4000'
+    networks:
+      - x11
+
+  frontend:
+    container_name: frontend
+    image: ${FARAWAY_FRONTEND_IMAGE_URL}
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    networks:
+      - x11
+
+  synpress:
+    container_name: synpress
+    build: .
+    environment:
+      - DISPLAY=display:0.0
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
+      - NETWORK_NAME=${NETWORK_NAME}
+      - RPC_URL=${RPC_URL}
+      - CHAIN_ID=${CHAIN_ID}
+      - BLOCK_EXPLORER=${BLOCK_EXPLORER}
+      - SYMBOL=${SYMBOL}
+      - CYPRESS_DOCKER_RUN=true
+    depends_on:
+      - frontend
+      - backend
+      - display
+    entrypoint: []
+    working_dir: /app
+    volumes:
+      - ./docker/report:/app/report
+    command: >
+      bash -c 'echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true " && yarn install && yarn wait-on http://display:8080 && yarn wait-on http://frontend:3000 && yarn ci:e2e:start'
+    networks:
+      - x11
+
+  display:
+    container_name: display
+    image: synthetixio/display:016121eafdfff448414894d0ca5a50b1d72b62eb-base
+    environment:
+      - RUN_XTERM=no
+      - DISPLAY_WIDTH=${DISPLAY_WIDTH}
+      - DISPLAY_HEIGHT=${DISPLAY_HEIGHT}
+    ports:
+      - '8080:8080'
+    networks:
+      - x11
+
+networks:
+  x11:

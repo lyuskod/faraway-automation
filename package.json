@@ -1,0 +1,46 @@
+{
+  "name": "faraway-automation",
+  "version": "1.0.0",
+  "description": "Faraway E2E automation (Test task)",
+  "main": "index.js",
+  "scripts": {
+    "commit": "yarn cz",
+    "start:local": "yarn synpress run --configFile src/synpress.config.ts",
+    "start:docker": "docker-compose --env-file ./docker.config up --exit-code-from synpress",
+    "ci:e2e:start": "yarn synpress run --configFile src/synpress.config.ts --config baseUrl=http://frontend:3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyuskod/faraway-automation.git"
+  },
+  "keywords": [
+    "faraway",
+    "e2e",
+    "aqa",
+    "automation"
+  ],
+  "author": "Dmitry Lyusko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyuskod/faraway-automation/issues"
+  },
+  "homepage": "https://github.com/lyuskod/faraway-automation#readme",
+  "dependencies": {
+    "@synthetixio/synpress": "^3.7.0",
+    "alchemy-sdk": "^2.8.3",
+    "cypress-mochawesome-reporter": "^3.5.0",
+    "typescript": "^5.0.4",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dotenv": "^16.1.0",
+    "wait-on": "^7.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
