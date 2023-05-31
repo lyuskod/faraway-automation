@@ -39,7 +39,8 @@ services:
     entrypoint: []
     working_dir: /app
     volumes:
-      - ./docker/report:/app/report
+      - ./docker/report/videos:/app/report/e2e/videos
+      - ./docker/report/screenshots:/app/report/e2e/screenshots
     command: >
       bash -c 'echo -n "======> local noVNC URL: http://localhost:8080/vnc.html?autoconnect=true " && yarn install && yarn wait-on http://display:8080 && yarn wait-on http://frontend:3000 && yarn ci:e2e:start'
     networks:

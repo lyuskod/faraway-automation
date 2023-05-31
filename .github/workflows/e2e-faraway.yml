@@ -49,5 +49,4 @@ jobs:
           path: |
             docker/report/videos
             docker/report/screenshots
-            docker/report/mocha-awesome
         continue-on-error: true

@@ -1,6 +1,30 @@
 # Faraway Automation
 Welcome to the Faraway E2E Automation repository!
-This project is created in terms of Faraway AQE vacancy test task.
+
+:warning: The `~report/` folder with the local runs' results was published due impossibility to fully run e2e on GitHub actions.
+
+Both requested test cases are covered. Please, see the `~report/` folder to find the automation results.
+
+# Frontend & Backend containers problem
+One of the main purposes for both of the test cases is to check that after we send the `deploy collection` or `mint nft` transactions - we should see the new data arrives under `Events` section.
+
+The `fronted` app works as follows:
+- it requests data for `Events` section by calling `http://localhost:4000/events` endpoint which is running as dedicated service
+- once it gets this data, then react injects the results inside `Events` section on UI
+
+So we have 2 3rd party services that configured by using `localhost` alias to communicate between each other.
+
+The problem is that it doesn't work on GitHub Actions because docker containers network `localhost` points to `this.container`. 
+
+And when start our services, the `fronted` start asking `backend` on the `localhost` which is impossible.
+`Events` section will never be filled because both `frontend` & `backend` services are running in separated containers having `localhost` ipv* address unique for each of them.
+In that case `fronted` should send the request to `backend` by the following url:
+- `http://{servicename}:4000/events`
+But we cant configure that, as I think.
+
+You can download test run artifacts and see the test execution by watching the test runs recordings archived: https://github.com/lyuskod/faraway-automation/actions/runs/5128001025
+
+_To be familiar with this issue, see: [Localhost can not be accessed on Github Actions workflow](https://stackoverflow.com/questions/68691293/localhost-can-not-be-accessed-on-github-actions-workflow)_
 
 # Tooling
 1. Test automation framework -> [Synthetixio/synpress](https://github.com/Synthetixio/synpress)
