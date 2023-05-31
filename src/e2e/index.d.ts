@@ -20,17 +20,16 @@ declare namespace Cypress {
         }
     }
     interface Chainable<Subject = any> {
+        openHomePage(options?: Partial<Cypress.VisitOptions>): Chainable<void>
         connectWalletToDApp(): Chainable<void>
         submitDeployCollectionForm(collectionName: string, collectionSymbol: string, collectionTokenUri: string, options?: CyGetOptions, typeOptions?: CyTypeOptions, clickOptions?: ClickOptions): Chainable<void>
         enterCollectionName(name: string, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
         enterCollectionSymbol(symbol: string, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
         enterCollectionTokenURI(tokenURI: string, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
-
         enterCollectionAddress(address: string, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
         enterRecipientAddress(recipient: string, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
         enterTokenId(tokenId: string | number, options?: CyGetOptions, typeOptions?: CyTypeOptions): Chainable<void>
         clickMintBtnToMintNFT(options?: CyGetOptions, clickOptions?: CyClickOptions): Chainable<void>
-
         clickCreateBtnToDeployCollection(options?: CyGetOptions, clickOptions?: CyClickOptions): Chainable<void>
         getCollectionCreatedEvents(options?: CyGetOptions): Chainable<CustomTypes.Events.UI.CollectionCreated[]>
         getTokenMintedEvents(options?: CyGetOptions): Chainable<CustomTypes.Events.UI.TokenMinted[]>

@@ -3,9 +3,9 @@ import CreatedCollectionEventFactory from "../factory/createdCollectionEventFact
 
 describe('FA1 - Smoke - Deploy NFT Collection', () => {
     after(() => cy.disconnectMetamaskWalletFromDapp())
-    it('User can deploy an NFT collection', () => {
+    it('User can deploy NFT collection', () => {
         const testData = CreatedCollectionEventFactory.getPredefinedCreatedCollectionEventData()
-        cy.visit('/')
+        cy.openHomePage()
         cy.acceptMetamaskAccess().should('be.true')
         cy.enterCollectionName(testData.collectioName)
         cy.enterCollectionSymbol(testData.collectionSymbol)

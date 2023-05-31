@@ -1,9 +1,14 @@
 # Faraway Automation
 Welcome to the Faraway E2E Automation repository!
 
-:warning: The `~report/` folder with the local runs' results was published due impossibility to fully run e2e on GitHub actions.
+:warning: The `~report/` folder with the local runs' results was published due impossibility to fully run e2e pipeline step on GitHub actions.
 
 Both requested test cases are covered. Please, see the `~report/` folder to find the automation results.
+
+## What's done
+1. Automated 2 test cases
+2. Added docker-compose.yml & Dockerfile
+3. Added github actions pipeline with corresponding steps
 
 # Frontend & Backend containers problem
 One of the main purposes for both of the test cases is to check that after we send the `deploy collection` or `mint nft` transactions - we should see the new data arrives under `Events` section.
