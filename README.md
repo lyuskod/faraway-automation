@@ -45,20 +45,27 @@ _To be familiar with this issue, see: [Localhost can not be accessed on Github A
 ## Quick Start
 :warning: Before run, please make sure you have both `evercoinx/faraway:nft-collection-deployer-frontend` and `evercoinx/faraway:nft-collection-deployer-backend` docker containers up and running
 
+:warning: Also make sure you have [nodejs](https://nodejs.org/en/download) and [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) installed globally
+
 1. Clone repo:
 ```
 git clone https://github.com/lyuskod/faraway-automation.git
 ```
-2. Open repo and install dependencies:
+2. Open repo:
+```
+cd faraway-automation
+```
+3. Install dependencies:
 ```
 yarn install
 ```
-3. Create `.env` file based on `env.example` file:
+4. Create `.env` file based on `env.example` file:
 ```
 cp env.example .env
 ```
-4. Provide your own values for the keys inside `.env` file
-5. Run e2e tests:
+5. Provide your own values for the keys inside `.env` file
+(Values are already provided)
+6. Run e2e tests:
 ```
 yarn start:local
 ```
@@ -83,6 +90,7 @@ _For more info visit: [Synthetixio/synpress](https://github.com/Synthetixio/synp
 cp docker.config.example docker.config
 ```
 2. Provide your own values for the keys inside `docker.config` file
+(Values are already provided)
 3. Run command:
 ```
 yarn start:docker

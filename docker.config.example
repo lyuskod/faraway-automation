@@ -1,12 +1,29 @@
-PRIVATE_KEY=
-ALCHEMY_API_KEY=
-RPC_URL=
-CHAIN_ID=
-BLOCK_EXPLORER=
-SYMBOL=
-NETWORK_NAME=
-DISPLAY_WIDTH=
-DISPLAY_HEIGHT=
-FARAWAY_BACKEND_IMAGE_URL=
-FARAWAY_FRONTEND_IMAGE_URL=
-DISPLAY_IMAGE_URL=
+# Metamask test wallet private key
+PRIVATE_KEY=02fa46f87803b13939bd45dc935bf66aef4a84bb7b12c7f5179f23ade5559250
+
+# Alchemy test account api key
+ALCHEMY_API_KEY=L-g-DDMjYX0_spg5G-YVzhUtd62in0oz
+
+# RPC url
+RPC_URL=https://rpc.ankr.com/polygon_mumbai
+
+# Chain id
+CHAIN_ID=80001
+
+# Blockcain explorer url
+BLOCK_EXPLORER=https://mumbai.polygonscan.com
+
+# Currency symbol
+SYMBOL=MATIC
+
+# Blockchain network name
+NETWORK_NAME=Polygon
+
+# Display configuration for synpress inside docker
+DISPLAY_WIDTH=1920
+DISPLAY_HEIGHT=1080
+
+# Docker images urls
+FARAWAY_BACKEND_IMAGE_URL=evercoinx/faraway:nft-collection-deployer-backend
+FARAWAY_FRONTEND_IMAGE_URL=evercoinx/faraway:nft-collection-deployer-frontend
+DISPLAY_IMAGE_URL=synthetixio/display:457bb48776c3b14de232d9dda620ba9188dc40ac-base
