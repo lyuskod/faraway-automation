@@ -27,7 +27,7 @@ In that case `fronted` should send the request to `backend` by the following url
 - `http://{servicename}:4000/events`
 But we cant configure that, as I think.
 
-You can download test run artifacts and see the test execution by watching the test runs recordings archived: https://github.com/lyuskod/faraway-automation/actions/runs/5128001025
+You can download test run artifacts and see the test execution by watching the test runs recordings archived: https://github.com/lyuskod/faraway-automation/actions/runs/5154833112
 
 _To be familiar with this issue, see: [Localhost can not be accessed on Github Actions workflow](https://stackoverflow.com/questions/68691293/localhost-can-not-be-accessed-on-github-actions-workflow)_
 
